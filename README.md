@@ -10,4 +10,5 @@ I also wanted to add the ability to move the books around as an interactive way 
 
 ## Technologies
 At first i stumbled on this [Code Pen Project](https://codepen.io/liabru/pen/jwXqOd) and that's how I discovered [Matter.js](https://brm.io/matter-js/docs/)
+This is what I was going for : [Air Friction](https://brm.io/matter-js/demo/#airFriction)
 This project is inspired by [Beit Ariela Library Website](https://ariela.today/)
