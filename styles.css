@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+}
+
+.book h1{
+    transform: rotate(-90deg);
+}
+.book {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    color: #000;
+}
+#book-one{
+    width: 75px;
+    height: 300px;
+    padding: 10px;
+    background-color: #780000;
+    border-radius: 5px;
+    color:#000;
+}
+#book-two{
+    width: 100px;
+    height: 400px;
+    padding: 10px;
+    background-color: #F4ACB7;
+    border-radius: 5px;
+    color:#000;
+}
+
+.falling-book {
+    position: absolute;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    transform-origin: top left; /* Set the rotation origin to the top left corner */
+    transition: transform 0.1s ease-in-out;
+}
