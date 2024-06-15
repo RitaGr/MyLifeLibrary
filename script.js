@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     render.options.hasBounds = true;
 
-    function createBook(x, y, bwidth, bheight, name) {
+    function createBook(x, y, bwidth, bheight, name, bcolor, tcolor) {
         const book = Bodies.rectangle(x, y, bwidth, bheight, {
             frictionAir: 0.02,
             restitution: 0.6,
             render: {
-                fillStyle: '#ffffff'
+                fillStyle: bcolor // book color
             },
             label: name // display name of the book on the cover
         });
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             context.save();
             context.translate(book.position.x, book.position.y);
             context.rotate(book.angle);
-            context.fillStyle = '#000000';
+            context.fillStyle = tcolor; // text color
             context.font = '14px Arial';
             context.textAlign = 'center';
             context.textBaseline = 'middle';
@@ -69,10 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Create individual books with names
-    const book1 = createBook(100, 0, 50, 450, "The Perks of Being a Wallflower - Stephen Chbosky");
-    const book2 = createBook(800, 0, 60, 500, "No Longer Human - Osamu Dazai");
-    const book3 = createBook(500, 0, 70, 400, "Norwegian Wood - Haruki Murakami");
-    const book4 = createBook(500, 0, 70, 400, "Eileen - Ottessa Moshfegh");
+    const book1 = createBook(100, 0, 50, 450, "The Perks of Being a Wallflower - Stephen Chbosky", '#9B2226', '#000000');
+    const book2 = createBook(200, 0, 40, 400, "No Longer Human - Osamu Dazai", '#D74D8E', '#ffffff');
+    const book3 = createBook(300, 0, 70, 400, "Norwegian Wood - Haruki Murakami", '#AE2012', '#ffffff');
+    const book4 = createBook(400, 0, 70, 350, "My Year of Rest and Relaxation - Ottessa Moshfegh", '#D74D8E', '#000000');
+    const book5 = createBook(500, 0, 50, 350, "The Bell Jar - Sylvia Plath", '#C9DFD2', '#D74D8E');
+    const book6 = createBook(600, 0, 90, 450, "A Little Life - Hanya Yanagihara", '#D3D3D3', '#ffffff');
+    const book7 = createBook(700, 0, 50, 450, "Before the Coffee Gets Cold - Toshikazu Kawaguchi", '#ffffff', '#81B29A');
+    const book8 = createBook(800, 0, 40, 450, "The Stranger - Albert Camus", '#000000', '#ffffff');
+    const book9 = createBook(900, 0, 60, 450, "Bunny - Mona Awad", '#FF6700', '#ffffff');
+    const book15= createBook(1400, 0, 70, 400, "Eileen - Ottessa Moshfegh", '#FF006E', '#ffffff');
 
     // Enable mouse interaction
     const mouse = Mouse.create(render.canvas);
