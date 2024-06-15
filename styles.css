@@ -13,19 +13,11 @@ body {
 .book {
     position: absolute;
     width: 50px;
-    height: 70px;
     display: flex;
     flex-direction: row;
     font-size: 12px;
     color: #000;
-}
-#book-one{
-    width: 75px;
-    height: 300px;
-    padding: 10px;
-    background-color: #780000;
-    border-radius: 5px;
-    color:#000;
+    text-align: center;
 }
 #book-two{
     width: 100px;
@@ -43,4 +35,20 @@ body {
     font-weight: bold;
     transform-origin: top left; /* Set the rotation origin to the top left corner */
     transition: transform 0.1s ease-in-out;
+}
+#bookContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+}
+.book-label {
+    position: absolute;
+    color: #000;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    pointer-events: none;
+    transform-origin: left top;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
 }

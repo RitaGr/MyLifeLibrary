@@ -30,34 +30,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     World.add(engine.world, [ground, leftWall, rightWall]);
 
-    // Function to create a book with individual name
-    function createBook(x, y, name) {
-        const book = Bodies.rectangle(x, y, 50, 70, { frictionAir: 0.02, restitution: 0.6 });
+    // Custom rendering function to draw text
+    Render.lookAt(render, {
+        min: { x: 0, y: 0 },
+        max: { x: window.innerWidth, y: window.innerHeight }
+    });
+
+    render.options.hasBounds = true;
+
+    function createBook(x, y, bwidth, bheight, name) {
+        const book = Bodies.rectangle(x, y, bwidth, bheight, {
+            frictionAir: 0.02,
+            restitution: 0.6,
+            render: {
+                fillStyle: '#ffffff'
+            },
+            label: name // display name of the book on the cover
+        });
+
         World.add(engine.world, book);
 
-        // // Create a div element for the book's name
-        const bookNameElement = document.createElement('div');
-        bookNameElement.classList.add('book');// bookNameElement.classList.add('book', 'falling-book');
-        // bookNameElement.innerText = name;
-        // document.body.appendChild(bookNameElement);
-
-        // Update the position of the book's name
-        function updateNamePosition() {
-            const { x, y } = book.position;
-            const offsetTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-            bookNameElement.style.transform = `translate(${x}px, ${y - offsetTop}px)`;
-        }
-
-        // Call updateNamePosition on every render
-        Events.on(render, 'beforeRender', updateNamePosition);
+        // Add custom rendering for the book name
+        Events.on(render, 'afterRender', function() {
+            const context = render.context;
+            context.save();
+            context.translate(book.position.x, book.position.y);
+            context.rotate(book.angle);
+            context.fillStyle = '#000000';
+            context.font = '14px Arial';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.rotate(-Math.PI / 2); // Rotate the text to vertical
+            context.fillText(book.label, 0, 0);
+            context.restore();
+        });
 
         return book;
     }
 
     // Create individual books with names
-    const book1 = createBook(100, 0, "The Perks of Being a Wallflower - Stephen Chbosky");
-    const book2 = createBook(300, 0, "No Longer Human - Osamu Dasai");
-    const book3 = createBook(500, 0, "Norwegian Wood - Haruki Murakami");
+    const book1 = createBook(100, 0, 50, 450, "The Perks of Being a Wallflower - Stephen Chbosky");
+    const book2 = createBook(800, 0, 60, 500, "No Longer Human - Osamu Dazai");
+    const book3 = createBook(500, 0, 70, 400, "Norwegian Wood - Haruki Murakami");
+    const book4 = createBook(500, 0, 70, 400, "Eileen - Ottessa Moshfegh");
 
     // Enable mouse interaction
     const mouse = Mouse.create(render.canvas);
