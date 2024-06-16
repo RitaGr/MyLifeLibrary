@@ -6,8 +6,8 @@
 body {
     margin: 0;
 }
-main{
-    height: 100vh;
+header{
+    padding: 100px;
 }
 
 .book h1{

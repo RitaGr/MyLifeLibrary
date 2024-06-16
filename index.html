@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./menu-scrollbar.css">
     
     <title>My Life Library</title>
 </head>
 <body>
     <header>
         <nav id="years">
-            
+            <div class="dotstyle dotstyle-dotmove">
+                <ul>
+                    <li class="current"><a href="#">2024</a></li>
+                    <li><a href="#">2023</a></li>
+                    <li><a href="#">2022</a></li>
+                    <li><a href="#">2021</a></li>
+                    <li><a href="#">2020</a></li>
+                    <li><!-- dummy dot --></li>
+                </ul>
+            </div>
         </nav>
     </header>
      <main>
         <section>
             <div id="bookContainer"></div>
-            <!-- <div id="book-one" class="book">
-                <h1>The Perks of Being a Wallflower - Stephen Chbosky</h1>
+        </section>
+        <section>
+            <div id="bookContainer2023">
+                <h1>dummy another test page</h1>
             </div>
-            <div id="book-two" class="book">
-                <h1>No Longer Human - Osamu Dasai</h1>
-            </div>
-            <div id="book-three" class="book">
-                <h1>Norwegian Wood - Haruki Murakami</h1>
-            </div> -->
         </section>
     </main> 
     <footer>
@@ -32,5 +38,15 @@
     </footer>
     <script src="./matter.min.js"></script>
     <script src="./script.js"></script>
+    <!-- Script for the current Dot to move -->
+    <script>
+        [].slice.call( document.querySelectorAll( '.dotstyle > ul' ) ).forEach( function( nav ) {
+            new DotNav( nav, {
+                callback : function( idx ) {
+                    //console.log( idx )
+                }
+            } );
+        } );
+    </script>
 </body>
 </html>
