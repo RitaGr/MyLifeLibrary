@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bookContainer = document.getElementById('bookContainer');
+    
 
     // Matter.js initialization
     const Engine = Matter.Engine;
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             context.translate(book.position.x, book.position.y);
             context.rotate(book.angle);
             context.fillStyle = tcolor; // text color
-            context.font = '14px Arial';
+            context.font = '16px Arial';
             context.textAlign = 'center';
             context.textBaseline = 'middle';
             context.rotate(-Math.PI / 2); // Rotate the text to vertical
