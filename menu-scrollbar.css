@@ -17,10 +17,20 @@ nav{
 	-ms-user-select: none;
 	user-select: none;
 }
+.year-label {
+	display: block;
+    margin-bottom: 5px; /* Adjust spacing between year and dot */
+	font-size: 18px;
+    color: #000; /* Adjust text color */ 
+	padding-top: 30px;
+	z-index: 1; /* text aligns above the book container*/
+}
 
 .dotstyle li {
 	position: relative;
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	float: left;
 	margin: 0 16px;
 	width: 16px;
@@ -37,7 +47,7 @@ nav{
 	border-radius: 50%;
 	background-color: #ECE8EF; 
 	color: #000;
-	background-color: rgba(129, 126, 159, 0.3);
+	background-color: rgba(25, 26, 23, 0.3);
 	text-indent: -999em; /* make the text accessible to screen readers */
 	cursor: pointer;
 	position: absolute;
@@ -65,7 +75,7 @@ nav{
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
-	background: #3C3C3C; /* current dot color*/
+	background: #020300; /* current dot color*/
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 }
@@ -107,5 +117,5 @@ nav{
 
 .dotstyle-dotmove li a:hover,
 .dotstyle-dotmove li a:focus {
-	background-color: #4E4D5C; /* hover on a dot element*/
+	background-color: #434441; /* hover on a dot element*/
 }

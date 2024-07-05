@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./menu-scrollbar.css">
-    
     <title>My Life Library</title>
 </head>
 <body>
@@ -13,40 +12,63 @@
         <nav id="years">
             <div class="dotstyle dotstyle-dotmove">
                 <ul>
-                    <li class="current"><a href="#first-p">2024</a></li>
-                    <li><a href="#second-p">2023</a></li>
-                    <li><a href="#">2022</a></li>
-                    <li><a href="#">2021</a></li>
-                    <li><a href="#">2020</a></li>
+                    <li class="current">
+                        <span class="year-label">2024</span>
+                        <a href="#first-p"></a>
+                    </li>
+                    <li>
+                        <span class="year-label">2023</span>
+                        <a href="#second-p"></a>
+                    </li>
+                    <!-- <li>
+                        <span class="year-label">2022</span>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <span class="year-label">2021</span>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <span class="year-label">2020</span>
+                        <a href="#"></a>
+                    </li> -->
                     <li><!-- dummy dot --></li>
                 </ul>
             </div>
         </nav>
     </header>
-     <main>
-        <section id="first-p">
-            <div id="bookContainer"></div>
-        </section>
-        <section id="second-p">
-            <div id="bookContainer2023">
-                <h1>dummy another test page</h1>
-            </div>
-        </section>
-    </main> 
-    <footer>
-
-    </footer>
+    <main>
+        <div id="slider">
+            <section id="section-2024">
+                <div id="bookContainer2024" class="bookContainer"></div>
+            </section>
+            <section id="section-2023">
+                <div id="bookContainer2023" class="bookContainer"></div>
+            </section>
+            <section id="section-2022">
+                <div id="bookContainer2022" class="bookContainer"></div>
+            </section>
+            <section id="section-2021">
+                <div id="bookContainer2021" class="bookContainer"></div>
+            </section>
+            <section id="section-2020">
+                <div id="bookContainer2020" class="bookContainer"></div>
+            </section>
+        </div>
+    </main>
+    <footer></footer>
     <script src="./matter.min.js"></script>
     <script src="./script.js"></script>
     <!-- Script for the current Dot to move -->
     <script>
-        [].slice.call( document.querySelectorAll( '.dotstyle > ul' ) ).forEach( function( nav ) {
-            new DotNav( nav, {
-                callback : function( idx ) {
-                    //console.log( idx )
-                }
-            } );
-        } );
+        document.querySelectorAll('.dotstyle a').forEach((link, index) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.dotstyle .current').classList.remove('current');
+                link.parentElement.classList.add('current');
+                document.getElementById('slider').style.transform = `translateX(-${index * 100}vw)`;
+            });
+        });
     </script>
 </body>
 </html>
