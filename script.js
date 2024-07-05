@@ -18,18 +18,49 @@ document.addEventListener('DOMContentLoaded', () => {
         options: {
             width: window.innerWidth,
             height: window.innerHeight,
-            background: '#fff', // background color of the book container
+            background: '##E09F3E', // background color of the book container
             wireframes: false
         }
     });
 
     // Add the walls to the world
     const wallOptions = { isStatic: true };
-    const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 20, window.innerWidth, 40, wallOptions);
-    const leftWall = Bodies.rectangle(-20, window.innerHeight / 2, 40, window.innerHeight, wallOptions);
-    const rightWall = Bodies.rectangle(window.innerWidth + 20, window.innerHeight / 2, 40, window.innerHeight, wallOptions);
+    const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight * 0.9 - 5, window.innerWidth, 90, {
+        ...wallOptions,
+        render: {
+            fillStyle: '#66462C'
+        }
+    });
+    const leftWall = Bodies.rectangle(-10, window.innerHeight / 2, 40, window.innerHeight, {
+        ...wallOptions,
+        render: {
+            fillStyle: '#5B3000'
+        }
+    });
+    const rightWall = Bodies.rectangle(window.innerWidth - 10, window.innerHeight / 2, 40, window.innerHeight, {
+        ...wallOptions,
+        render: {
+            fillStyle: '#5B3000'
+        }
+    });
 
-    World.add(engine.world, [ground, leftWall, rightWall]);
+    // Position the ceiling at 90% of the window height
+    const ceilingHeight = window.innerHeight * 0.9;
+    const ceiling = Bodies.rectangle(window.innerWidth / 2, 0, window.innerWidth, 10, {
+        ...wallOptions,
+        render: {
+            fillStyle: '66462C'
+        }
+    });
+    const shelf = Bodies.rectangle(window.innerWidth / 2, 0, window.innerWidth, 10, {
+        ...wallOptions,
+        render: {
+            fillStyle: '66462C'
+        }
+    });
+
+
+    World.add(engine.world, [ground, leftWall, rightWall, ceiling]);
 
     // Custom rendering function to draw text
     Render.lookAt(render, {
@@ -70,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Create individual books with names
-    const book1 = createBook(100, 0, 50, 450, "The Perks of Being a Wallflower - Stephen Chbosky", '#9B2226', '#000000');
-    const book2 = createBook(200, 0, 40, 400, "No Longer Human - Osamu Dazai", '#D74D8E', '#ffffff');
+    const book1 = createBook(250, 0, 50, 450, "The Perks of Being a Wallflower - Stephen Chbosky", '#9B2226', '#000000');
+    const book2 = createBook(250, 0, 40, 400, "No Longer Human - Osamu Dazai", '#D74D8E', '#ffffff');
     const book3 = createBook(300, 0, 70, 400, "Norwegian Wood - Haruki Murakami", '#AE2012', '#ffffff');
-    const book4 = createBook(400, 0, 70, 350, "My Year of Rest and Relaxation - Ottessa Moshfegh", '#D74D8E', '#000000');
+    const book4 = createBook(400, 0, 70, 400, "My Year of Rest and Relaxation - Ottessa Moshfegh", '#D74D8E', '#000000');
     const book5 = createBook(500, 0, 50, 350, "The Bell Jar - Sylvia Plath", '#C9DFD2', '#D74D8E');
     const book6 = createBook(600, 0, 90, 450, "A Little Life - Hanya Yanagihara", '#D3D3D3', '#ffffff');
     const book7 = createBook(700, 0, 50, 450, "Before the Coffee Gets Cold - Toshikazu Kawaguchi", '#ffffff', '#81B29A');
