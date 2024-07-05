@@ -20,11 +20,11 @@ At first, I stumbled on this [Code Pen Project](https://codepen.io/liabru/pen/jw
 ## 🚀 Getting Started
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/RitaGr/MyLifeLibrary.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd your-repo-name
+   cd MyLifeLibrary
    ```
 3. Open the `index.html` file in your browser to view the project locally.
 
