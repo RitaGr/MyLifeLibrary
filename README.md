@@ -5,7 +5,7 @@ Sure! Here's the adjusted README page with emojis added for better visual appeal
 # 📚 My Life Library
 
 ## 🌐 Live Demo
-Check out the live demo of the project [here]([https://ariela.today/](https://ritagr.github.io/MyLifeLibrary/)).
+Check out the live demo of the project [here]([https://ritagr.github.io/MyLifeLibrary/]).
 
 ## 📖 Introduction
 I've always been a big reader and lover of books. As part of reading and collecting books, you also develop a need to track all the books you've read. This - I've decided - can be done in a fun and modern way, using code!
