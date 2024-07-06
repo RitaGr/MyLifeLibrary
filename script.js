@@ -65,38 +65,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
         render.options.hasBounds = true;
 
-        function createBook(x, y, bwidth, bheight, name, bcolor, tcolor) {
+        function createBook(x, y, bwidth, bheight, name, bcolor, tcolor, orientation = 'vertical') {
             const book = Bodies.rectangle(x, y, bwidth, bheight, {
                 frictionAir: 0.03,
                 restitution: 0.5,
                 render: {
-                    fillStyle: bcolor
+                    fillStyle: bcolor // book color
                 },
-                label: name
+                label: name // display name of the book on the cover
             });
-
+        
             World.add(engine.world, book);
-
+        
+            // Add custom rendering for the book name
             Events.on(render, 'afterRender', function() {
                 const context = render.context;
                 context.save();
                 context.translate(book.position.x, book.position.y);
                 context.rotate(book.angle);
-                context.fillStyle = tcolor;
+                context.fillStyle = tcolor; // text color
                 context.font = '16px Arial';
                 context.textAlign = 'center';
                 context.textBaseline = 'middle';
-                context.rotate(-Math.PI / 2);
+                if (orientation === 'vertical') {
+                    context.rotate(-Math.PI / 2); // Rotate the text to vertical
+                }
                 context.fillText(book.label, 0, 0);
                 context.restore();
             });
-
+        
             return book;
         }
+        
 
         // Add books to the container
         books.forEach(book => {
-            createBook(book.x, book.y, book.width, book.height, book.name, book.color, book.textColor);
+            createBook(book.x, book.y, book.width, book.height, book.name, book.color, book.textColor, book.orientation);
         });
 
         const mouse = Mouse.create(render.canvas);
@@ -118,23 +122,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Books for each container
+    // Books for each container
     const books2024 = [
-        { x: 550, y: 20, width: 60, height: 540, name: "The Perks of Being a Wallflower - Stephen Chbosky", color: '#9B2226', textColor: '#000000' },
-        { x: 650, y: 0, width: 48, height: 480, name: "No Longer Human - Osamu Dazai", color: '#D74D8E', textColor: '#ffffff' },
-        { x: 400, y: 0, width: 84, height: 480, name: "Norwegian Wood - Haruki Murakami", color: '#AE2012', textColor: '#ffffff' },
-        { x: 400, y: 0, width: 84, height: 480, name: "My Year of Rest and Relaxation - Ottessa Moshfegh", color: '#D74D8E', textColor: '#000000' },
-        { x: 500, y: 0, width: 60, height: 420, name: "The Bell Jar - Sylvia Plath", color: '#C9DFD2', textColor: '#D74D8E' },
-        { x: 600, y: 0, width: 108, height: 540, name: "A Little Life - Hanya Yanagihara", color: '#D3D3D3', textColor: '#ffffff' },
-        { x: 700, y: 0, width: 60, height: 540, name: "Before the Coffee Gets Cold - Toshikazu Kawaguchi", color: '#ffffff', textColor: '#81B29A' },
-        { x: 800, y: 0, width: 48, height: 540, name: "The Stranger - Albert Camus", color: '#000000', textColor: '#ffffff' },
-        { x: 900, y: 0, width: 72, height: 540, name: "Bunny - Mona Awad", color: '#FF6700', textColor: '#ffffff' },
-        { x: 1000, y: 0, width: 84, height: 480, name: "Eileen - Ottessa Moshfegh", color: '#FF006E', textColor: '#ffffff' }
+        { x: 1100, y: 800, width: 800, height: 120, name: "To Paradise - Hanya Yanagihara", color: '#020300', textColor: '#0CBABA', orientation: 'horizontal' },
+        { x: 600, y: 800, width: 84, height: 480, name: "Eileen - Ottessa Moshfegh", color: '#FF006E', textColor: '#ffffff', orientation: 'vertical' },
+        { x: 600, y: 800, width: 84, height: 480, name: "Makeover - Lynda Chater", color: '#FFB703', textColor: '#C1121F', orientation: 'vertical' },
+        { x: 600, y: 800, width: 84, height: 480, name: "Tender is the Flesh - Agustina Bazterrica", color: '#780000', textColor: '#FFFFFF', orientation: 'vertical' },
+        { x: 1100, y: 700, width: 500, height: 60, name: "First Person Singular - Haruki Murakami", color: '#FDF8E1', textColor: '#C9A227', orientation: 'horizontal' },
         // Add more books here
     ];
 
+        
+
     const books2023 = [
-        { x: 550, y: 20, width: 60, height: 540, name: "New Book 1", color: '#FF5733', textColor: '#000000' },
-        { x: 650, y: 0, width: 48, height: 480, name: "New Book 2", color: '#C70039', textColor: '#ffffff' },
+        { x: 950, y: 0, width: 540, height: 60, name: "The Perks of Being a Wallflower - Stephen Chbosky", color: '#9B2226', textColor: '#000000', orientation: 'horizontal' },
+        { x: 350, y: 100, width: 48, height: 480, name: "No Longer Human - Osamu Dazai", color: '#D74D8E', textColor: '#ffffff', orientation: 'vertical' },
+        { x: 400, y: 200, width: 84, height: 480, name: "Norwegian Wood - Haruki Murakami", color: '#AE2012', textColor: '#ffffff', orientation: 'vertical' },
+        { x: 300, y: 300, width: 84, height: 480, name: "My Year of Rest and Relaxation - Ottessa Moshfegh", color: '#D74D8E', textColor: '#000000', orientation: 'vertical' },
+        { x: 900, y: 300, width: 420, height: 60, name: "The Bell Jar - Sylvia Plath", color: '#C9DFD2', textColor: '#D74D8E', orientation: 'horizontal' },
+        { x: 900, y: 500, width: 540, height: 108, name: "A Little Life - Hanya Yanagihara", color: '#D3D3D3', textColor: '#ffffff', orientation: 'horizontal' },
+        { x: 700, y: 600, width: 540, height: 60, name: "Before the Coffee Gets Cold - Toshikazu Kawaguchi", color: '#ffffff', textColor: '#81B29A', orientation: 'horizontal' },
+        { x: 800, y: 700, width: 540, height: 48, name: "The Stranger - Albert Camus", color: '#000000', textColor: '#ffffff', orientation: 'horizontal' },
+        { x: 900, y: 800, width: 540, height: 72, name: "Bunny - Mona Awad", color: '#FF6700', textColor: '#ffffff', orientation: 'horizontal' },
         // Add more books here
     ];
 
