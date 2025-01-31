@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bookContainers = [
+        document.getElementById('bookContainer2025'),
         document.getElementById('bookContainer2024'),
         document.getElementById('bookContainer2023'),
         document.getElementById('bookContainer2022'),
@@ -122,13 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Books for each container
+    const books2025 = [
+        { x: 600, y: 300, width: 84, height: 420, name: "Кровь Эльфов - Анджей Сапковский", color: '#020300', textColor: '#0CBABA', orientation: 'vertical' }
+    ];
     // Books for each container
     const books2024 = [
-        { x: 1100, y: 800, width: 800, height: 120, name: "To Paradise - Hanya Yanagihara", color: '#020300', textColor: '#0CBABA', orientation: 'horizontal' },
-        { x: 600, y: 800, width: 84, height: 480, name: "Eileen - Ottessa Moshfegh", color: '#FF006E', textColor: '#ffffff', orientation: 'vertical' },
-        { x: 600, y: 800, width: 84, height: 480, name: "Makeover - Lynda Chater", color: '#FFB703', textColor: '#C1121F', orientation: 'vertical' },
-        { x: 600, y: 800, width: 84, height: 480, name: "Tender is the Flesh - Agustina Bazterrica", color: '#780000', textColor: '#FFFFFF', orientation: 'vertical' },
-        { x: 1100, y: 700, width: 500, height: 60, name: "First Person Singular - Haruki Murakami", color: '#FDF8E1', textColor: '#C9A227', orientation: 'horizontal' },
+        { x: 1100, y: 100, width: 800, height: 120, name: "To Paradise - Hanya Yanagihara", color: '#020300', textColor: '#0CBABA', orientation: 'horizontal' },
+        { x: 600, y: 100, width: 84, height: 480, name: "Eileen - Ottessa Moshfegh", color: '#FF006E', textColor: '#ffffff', orientation: 'vertical' },
+        { x: 600, y: 100, width: 84, height: 480, name: "Makeover - Lynda Chater", color: '#FFB703', textColor: '#C1121F', orientation: 'vertical' },
+        { x: 600, y: 100, width: 84, height: 480, name: "Tender is the Flesh - Agustina Bazterrica", color: '#780000', textColor: '#FFFFFF', orientation: 'vertical' },
+        { x: 1100, y: 100, width: 500, height: 60, name: "First Person Singular - Haruki Murakami", color: '#FDF8E1', textColor: '#C9A227', orientation: 'horizontal' }
         // Add more books here
     ];
 
@@ -143,13 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 900, y: 500, width: 540, height: 108, name: "A Little Life - Hanya Yanagihara", color: '#D3D3D3', textColor: '#ffffff', orientation: 'horizontal' },
         { x: 700, y: 600, width: 540, height: 60, name: "Before the Coffee Gets Cold - Toshikazu Kawaguchi", color: '#ffffff', textColor: '#81B29A', orientation: 'horizontal' },
         { x: 800, y: 700, width: 540, height: 48, name: "The Stranger - Albert Camus", color: '#000000', textColor: '#ffffff', orientation: 'horizontal' },
-        { x: 900, y: 800, width: 540, height: 72, name: "Bunny - Mona Awad", color: '#FF6700', textColor: '#ffffff', orientation: 'horizontal' },
+        { x: 900, y: 800, width: 540, height: 72, name: "Bunny - Mona Awad", color: '#FF6700', textColor: '#ffffff', orientation: 'horizontal' }
         // Add more books here
     ];
 
     // Initialize Matter.js for each container with the respective books
-    initializeBooks(bookContainers[0], books2024);
-    initializeBooks(bookContainers[1], books2023);
+    initializeBooks(bookContainers[0], books2025);
+    initializeBooks(bookContainers[1], books2024);
+    initializeBooks(bookContainers[2], books2023);
     // Repeat for other containers and book sets
 
     // DotNav initialization
