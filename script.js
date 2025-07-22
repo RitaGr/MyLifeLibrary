@@ -124,7 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Books for each container
     const books2025 = [
-        { x: 600, y: 300, width: 84, height: 420, name: "Кровь Эльфов - Анджей Сапковский", color: '#020300', textColor: '#0CBABA', orientation: 'vertical' }
+        { x: 1700, y: 300, width: 94, height: 480, name: "Кровь Эльфов - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'vertical' },
+        { x: 1300, y: 70, width: 600, height: 95, name: "Час презрения - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'},
+        { x: 1300, y: 40, width: 700, height: 85, name: "Крещение огнем - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'},
+        { x: 1300, y: 30, width: 500, height: 95, name: "Башня Ласточки - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'},
+        { x: 1300, y: 20, width: 610, height: 105, name: "Владычица Озера - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'},
+        { x: 500, y: 20, width: 45, height: 350, name: "מרק עגבניות זוחל אל השמיים - פאולינה בוקובסקה", color: '#1697c7', textColor: '#ffffff', orientation: 'vertical'},
+        { x: 490, y: 20, width: 80, height: 430, name: "Nightbitch - Rachel Yoder", color: '#eee3b7', textColor: '#7d1308', orientation: 'vertical'},
+        { x: 600, y: 20, width: 90, height: 500, name: "Animal - Lisa Taddeo", color: '#db5d11', textColor: '#f9df3a', orientation: 'vertical'}
+        
     ];
     // Books for each container
     const books2024 = [
@@ -132,7 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 600, y: 100, width: 84, height: 480, name: "Eileen - Ottessa Moshfegh", color: '#FF006E', textColor: '#ffffff', orientation: 'vertical' },
         { x: 600, y: 100, width: 84, height: 480, name: "Makeover - Lynda Chater", color: '#FFB703', textColor: '#C1121F', orientation: 'vertical' },
         { x: 600, y: 100, width: 84, height: 480, name: "Tender is the Flesh - Agustina Bazterrica", color: '#780000', textColor: '#FFFFFF', orientation: 'vertical' },
-        { x: 1100, y: 100, width: 500, height: 60, name: "First Person Singular - Haruki Murakami", color: '#FDF8E1', textColor: '#C9A227', orientation: 'horizontal' }
+        { x: 1100, y: 70, width: 500, height: 60, name: "First Person Singular - Haruki Murakami", color: '#FDF8E1', textColor: '#C9A227', orientation: 'horizontal' },
+        { x: 1100, y: 50, width: 500, height: 30, name: "Switch Bitch - Ronald Dahl", color: '#facbe2', textColor: '#000000', orientation: 'horizontal' },
+        { x: 1100, y: 20, width: 700, height: 30, name: "Losing Michael Malone - Nicholas Kasunic", color: '#66310f', textColor: '#ffe1cd', orientation: 'horizontal' },
+        { x: 600, y: 100, width: 60, height: 480, name: "The Vegetarian - Han Kang", color: '#5b113b', textColor: '#cb1179', orientation: 'vertical' },
+        { x: 200, y: 100, width: 600, height: 150, name: "Kafka on the Shore - Haruki Murakami", color: '#FDF8E1', textColor: '#000000', orientation: 'horizontal' },
+        { x: 200, y: 90, width: 600, height: 80, name: "Acts of Desperation - Megan Nolan", color: '#be0c24', textColor: '#000000', orientation: 'horizontal' },
+        { x: 200, y: 80, width: 600, height: 30, name: "Greek Lessons - Han Kang", color: '#2a2197', textColor: '#ffffff', orientation: 'horizontal' },
+        { x: 300, y: 70, width: 600, height: 30, name: "התפסן בשדה השיפון - ג'יי-די סלינג'ר", color: '#2a2197', textColor: '#ede044', orientation: 'horizontal'},
+        { x: 700, y: 70, width: 90, height: 490, name: "Earthlings - Sayaka Murata", color: '#38f032', textColor: '#000000', orientation: 'vertical'},
+        { x: 1100, y: 70, width: 600, height: 95, name: "Последнее Желание - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'},
+        { x: 1100, y: 70, width: 650, height: 100, name: "Меч Предназначения - Анджей Сапковский", color: '#babdba', textColor: '#000000', orientation: 'horizontal'}
         // Add more books here
     ];
 
